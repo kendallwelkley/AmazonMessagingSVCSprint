@@ -3,6 +3,7 @@
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 window.addEventListener("onEmbeddedMessagingReady", function() {
+	console.log("Received the onEmbeddedMessagingReady event…");
             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
                 "Card_Token": "12345"
             });
