@@ -2,15 +2,19 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-embedded_svc.settings.extraPrechatFormDetails = 
-			[
-				{
-					"label":"Card Token",
-					"value": '12345',
-					"transcriptFields":[ "Card_Token__c" ],
-					"displayToAgent":true
-				},
-      			];
+window.addEventListener("onEmbeddedMessagingReady", e => {
+						  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+						    // List the pre-chat field names with the value and whether
+						    // it's editable in the pre-chat form.
+		 						"Card_Token": {
+						      	"value": "12345",
+						      	"isEditableByEndUser": false
+						    	},
+						
+		 				  });
+                          
+						});
+
 			embeddedservice_bootstrap.init(
 				'00DVE000006fyo0',
 				'Amazon_Messaging',
