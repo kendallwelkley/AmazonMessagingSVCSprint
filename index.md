@@ -2,9 +2,14 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-window.addEventListener("onEmbeddedMessagingReady", e => {
-						    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"Card_Token" : "12345",
+window.addEventListener("onEmbeddedMessagingReady", () => {
+    console.log("Received the onEmbeddedMessagingReady event…");
+
+    // Send data to Salesforce
+    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"Card_Token" : "12345",
         });
+
+});
 
 			embeddedservice_bootstrap.init(
 				'00DVE000006fyo0',
